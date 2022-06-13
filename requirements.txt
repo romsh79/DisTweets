@@ -1,4 +1,4 @@
-streamlit==0.71.0
+streamlit
 nltk==3.6.5
 string
 spacy
