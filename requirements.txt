@@ -1,4 +1,3 @@
 streamlit
 nltk==3.6.5
-string
-spacy
+spacy==3.3.0
