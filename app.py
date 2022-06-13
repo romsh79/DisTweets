@@ -6,7 +6,7 @@ import streamlit as st
 
 import pickle
 import nltk
-import string
+#import string
 from nltk import pos_tag
 from nltk.corpus import wordnet
 import spacy
@@ -18,7 +18,8 @@ with open('model_Dis_Tweet.pkl', 'rb') as file:
     model = pickle.load(file)
 
 stop = set(stopwords)
-punctuation = list(string.punctuation)
+#punctuation = list(string.punctuation)
+punctuation = ['!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[','\\',']','^','_','`','{','|','}','~']
 stop.update(punctuation)
 
 def get_simple_pos(tag):
