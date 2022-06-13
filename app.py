@@ -1,9 +1,6 @@
 import pandas as pd
 import numpy as np
-import plotly.express as px
-from urllib.request import urlopen
 import streamlit as st
-
 import pickle
 import nltk
 from nltk import pos_tag
