@@ -1,0 +1,5 @@
+streamlit
+pickle
+nltk==3.6.5
+string
+spacy==3.3.0
