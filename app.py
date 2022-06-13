@@ -45,7 +45,7 @@ def lemmatize_words(text):
             word = lemmatizer.lemmatize(i.strip(),get_simple_pos(pos[0][1]))
             final_text.append(word.lower())
     return " ".join(final_text)
-nlp = spacy.load('en_core_web_lg')
+nlp = spacy.load('en_core_web_sm')
 
 # Header    
 st.title('Classification of twitter records')
