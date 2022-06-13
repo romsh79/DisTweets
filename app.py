@@ -27,8 +27,7 @@ punctuation = ['!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/',':','
 stop.update(punctuation)
 
 # load trained model
-with open('model_Dis_Tweet.pkl', 'rb') as file: 
-    model = pickle.load(file)
+model = pickle.load(open('model_Dis_Tweet.pkl', 'rb'))
 	
 def get_simple_pos(tag):
     if tag.startswith('J'):
