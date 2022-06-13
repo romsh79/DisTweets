@@ -7,11 +7,6 @@ from nltk import pos_tag
 from nltk.corpus import wordnet
 import spacy
 from nltk.stem import WordNetLemmatizer
-#stopwords = nltk.corpus.stopwords.words('english')
-
-# load trained model
-with open('model_Dis_Tweet.pkl', 'rb') as file: 
-    model = pickle.load(file)
 
 stopwords = ['i','me','my','myself','we','our','ours','ourselves','you',"you're","you've","you'll","you'd",'your','yours','yourself','yourselves','he',
 'him','his','himself','she',"she's",'her','hers','herself','it',"it's",'its','itself','they','them','their','theirs','themselves','what','which','who',
