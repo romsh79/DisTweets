@@ -6,7 +6,6 @@ import streamlit as st
 
 import pickle
 import nltk
-#import string
 from nltk import pos_tag
 from nltk.corpus import wordnet
 import spacy
@@ -18,10 +17,13 @@ with open('model_Dis_Tweet.pkl', 'rb') as file:
     model = pickle.load(file)
 
 stop = set(stopwords)
-#punctuation = list(string.punctuation)
 punctuation = ['!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[','\\',']','^','_','`','{','|','}','~']
 stop.update(punctuation)
 
+# load trained model
+with open('model_Dis_Tweet.pkl', 'rb') as file: 
+    model = pickle.load(file)
+	
 def get_simple_pos(tag):
     if tag.startswith('J'):
         return wordnet.ADJ
@@ -44,8 +46,7 @@ def lemmatize_words(text):
             final_text.append(word.lower())
     return " ".join(final_text)
 nlp = spacy.load('en_core_web_lg')
-	
-	
+
 # Header    
 st.title('Classification of twitter records')
 st.write("""Here we will identify twitter records on the disaster content""")
@@ -65,15 +66,11 @@ st.sidebar.image("grandma.jpg")
 # Params of the data we want to classify
 #DATA = ('Data/DisasterTweets/test.csv')
 DATA_COLUMNS = ['id','text']
-@st.cache # for optimization of application
 
 # Create function for data loading
-def load_data():
-    df = pd.read_csv(uploaded_file, sep=',', skipinitialspace=True)
-    return df
-# Apply function
-df = load_data()
-
+if uploaded_file:
+	df = pd.read_csv(uploaded_file, sep=',', skipinitialspace=True)
+	
 # How many data rows to show
 showdata = st.sidebar.slider("How many data rows to show", min_value=1, max_value=30, value=5)
 
